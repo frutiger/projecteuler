@@ -14,3 +14,5 @@ def prime_factors(n):
       candidate += 1
   return factors
 
+def triangular_number(n):
+  return int((n*n + n) / 2)
