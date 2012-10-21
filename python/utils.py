@@ -38,3 +38,10 @@ def fibonacci(x, y=None):
 
   return list(itertools.islice(fibonaccis(), x - 1, y - 1))
 
+def is_palindrome(n):
+  chars = str(n)
+  for i in range(int(len(chars)/2)):
+    if chars[i] != chars[len(chars) - 1 - i]:
+      return False
+  return True
+
