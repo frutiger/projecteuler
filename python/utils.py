@@ -1,5 +1,6 @@
 #!/usr/bin/env python
 
+import functools
 import itertools
 
 def prime_factors(n):
@@ -45,3 +46,5 @@ def is_palindrome(n):
       return False
   return True
 
+def product(sequence):
+  return functools.reduce(lambda x, y: x*y, sequence)
