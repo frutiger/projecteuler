@@ -20,5 +20,6 @@ def unique_pairs(max):
     for b in range(max, a - 1, -1):
       yield (a, b)
 
-print(max(filter(is_palindrome, map(product, unique_pairs(999)))))
+if __name__ == "__main__":
+    print(max(filter(is_palindrome, map(product, unique_pairs(999)))))
 

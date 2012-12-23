@@ -19,4 +19,5 @@ def largest_prime_factor(n):
 
   return prime_factors(n)[-1:][0]
 
-print(largest_prime_factor(600851475143))
+if __name__ == "__main__":
+    print(largest_prime_factor(600851475143))

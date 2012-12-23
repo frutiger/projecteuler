@@ -34,4 +34,5 @@ def solve(n):
       all_factors = all_factors + factors - common_factors
   return functools.reduce(operator.mul, all_factors.elements())
 
-print(solve(20))
+if __name__ == "__main__":
+    print(solve(20))

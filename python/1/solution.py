@@ -17,6 +17,7 @@ from utils import *
 def sum_of_multiples(max, divisor):
   return divisor * triangular_number(int((max - 1)/divisor))
 
-print(sum_of_multiples(1000,  3) \
-    + sum_of_multiples(1000,  5) \
-    - sum_of_multiples(1000, 15)) # these would get double counted
+if __name__ == "__main__":
+    print(sum_of_multiples(1000,  3) \
+        + sum_of_multiples(1000,  5) \
+        - sum_of_multiples(1000, 15)) # these would get double counted

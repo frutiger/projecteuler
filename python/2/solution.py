@@ -18,7 +18,9 @@ four million, find the sum of the even-valued terms.
 from utils import *
 import itertools
 
-less_than_4_million = itertools.takewhile(lambda x: x < 4000000, fibonaccis())
-evens = filter(lambda x: x%2==0, less_than_4_million)
-print(sum(evens))
+if __name__ == "__main__":
+    less_than_4_million = itertools.takewhile(
+        lambda x: x < 4000000, fibonaccis())
+    evens = filter(lambda x: x%2==0, less_than_4_million)
+    print(sum(evens))
 
