@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+# Allows flexible starting directories
+import os
 import sys
-sys.path.append("..")
+sys.path.append(os.path.join(sys.path[0], ".."))
 
 """
 If we list all the natural numbers below 10 that are multiples of 3 or 5, we

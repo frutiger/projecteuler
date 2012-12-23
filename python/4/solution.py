@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+# Allows flexible starting directories
+import os
 import sys
-sys.path.append("..")
+sys.path.append(os.path.join(sys.path[0], ".."))
 
 """
 A palindromic number reads the same both ways. The largest palindrome made from

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+# Allows flexible starting directories
+import os
 import sys
-sys.path.append("..")
+sys.path.append(os.path.join(sys.path[0], ".."))
 
 """
 2520 is the smallest number that can be divided by each of the numbers from 1

@@ -1,7 +1,9 @@
 #!/usr/bin/env python3
 
+# Allows flexible starting directories
+import os
 import sys
-sys.path.append("..")
+sys.path.append(os.path.join(sys.path[0], ".."))
 
 """
 The prime factors of 13195 are 5, 7, 13 and 29.
