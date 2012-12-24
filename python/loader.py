@@ -15,10 +15,13 @@ def result(problem):
     print("Solution %s: %d" % (problem, module.result()))
 
 if __name__ == "__main__":
-    parser = argparse.ArgumentParser()
-    parser.add_argument("problems", metavar="n", type=int, nargs="*")
-    parser.add_argument("--test", "-t", dest="action",
-                        action="store_const", const=test, default=result)
+    parser = argparse.ArgumentParser(description="Load and execute solutions")
+    parser.add_argument("problems", metavar="N", type=int, nargs="*",
+                        help="One or more problems (there are %d) - load all \
+                              if none supplied" % NUM_PROBLEMS)
+    parser.add_argument("-t", "--test", dest="action",
+                        action="store_const", const=test, default=result,
+                        help="Test solution instead of getting the result")
     args = parser.parse_args()
     if len(args.problems) == 0:
         args.problems = range(1, NUM_PROBLEMS + 1)
