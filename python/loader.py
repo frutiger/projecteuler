@@ -4,7 +4,7 @@ import argparse
 import importlib
 import sys
 
-NUM_PROBLEMS = 7
+NUM_PROBLEMS = 8
 
 def test(problem):
     module = importlib.import_module("solution" + problem)
