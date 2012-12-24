@@ -20,19 +20,20 @@ import operator
 from utils import *
 
 def solve(n):
-  if n < 1:
-    raise ValueError('less than 1: %d' % n)
+    if n < 1:
+        raise ValueError('less than 1: %d' % n)
 
-  if n == 1:
-    return 1
+    if n == 1:
+        return 1
 
-  all_factors = collections.Counter()
-  for number in range(2, n + 1)[::-1]:
-    factors = collections.Counter(prime_factors(number))
-    common_factors = all_factors & factors
-    if common_factors != factors:
-      all_factors = all_factors + factors - common_factors
-  return functools.reduce(operator.mul, all_factors.elements())
+    all_factors = collections.Counter()
+    for number in range(2, n + 1)[::-1]:
+        factors = collections.Counter(prime_factors(number))
+        common_factors = all_factors & factors
+        if common_factors != factors:
+            all_factors = all_factors + factors - common_factors
+    return functools.reduce(operator.mul, all_factors.elements())
 
 if __name__ == "__main__":
     print(solve(20))
+

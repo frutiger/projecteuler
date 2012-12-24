@@ -16,9 +16,9 @@ from utils import *
 import itertools
 
 def unique_pairs(max):
-  for a in range(max, 0, -1):
-    for b in range(max, a - 1, -1):
-      yield (a, b)
+    for a in range(max, 0, -1):
+        for b in range(max, a - 1, -1):
+            yield (a, b)
 
 if __name__ == "__main__":
     print(max(filter(is_palindrome, map(product, unique_pairs(999)))))
