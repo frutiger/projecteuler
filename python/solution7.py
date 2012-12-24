@@ -14,8 +14,13 @@ What is the 10001st prime number?
 
 from utils import *
 
-if __name__ == "__main__":
+def test():
     assert(prime(6)     == 13)
     assert(prime(10001) == 104743)
-    print("Problem 7: 104743")
+
+def result():
+    return 104743
+
+if __name__ == "__main__":
+    print(result())
 

@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-# Allows flexible starting directories
-import os
-import sys
-sys.path.append(os.path.join(sys.path[0], ".."))
-
 """
 2520 is the smallest number that can be divided by each of the numbers from 1
 to 10 without any remainder.
@@ -34,8 +29,13 @@ def solve(n):
             all_factors = all_factors + factors - common_factors
     return functools.reduce(operator.mul, all_factors.elements())
 
-if __name__ == "__main__":
+def test():
     assert(solve(10) == 2520)
     assert(solve(20) == 232792560)
-    print("Problem 5: 232792560")
+
+def result():
+    return 232792560
+
+if __name__ == "__main__":
+    print(result())
 

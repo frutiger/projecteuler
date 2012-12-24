@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-# Allows flexible starting directories
-import os
-import sys
-sys.path.append(os.path.join(sys.path[0], ".."))
-
 """
 A palindromic number reads the same both ways. The largest palindrome made from
 the product of two 2-digit numbers is 9009 = 91 * 99.
@@ -25,8 +20,13 @@ def solve(num_digits):
     return max(filter(is_palindrome, map(product,
                                          unique_pairs(largest_num))))
 
-if __name__ == "__main__":
+def test():
     assert(solve(2) == 9009)
     assert(solve(3) == 906609)
-    print("Problem 4: 906609")
+
+def result():
+    return 906609
+
+if __name__ == "__main__":
+    print(result())
 

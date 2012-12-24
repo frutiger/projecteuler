@@ -1,10 +1,5 @@
 #!/usr/bin/env python3
 
-# Allows flexible starting directories
-import os
-import sys
-sys.path.append(os.path.join(sys.path[0], ".."))
-
 """
 The prime factors of 13195 are 5, 7, 13 and 29.
 
@@ -19,8 +14,13 @@ def largest_prime_factor(n):
 
     return prime_factors(n)[-1:][0]
 
-if __name__ == "__main__":
+def test():
     assert(largest_prime_factor(13195)        == 29)
     assert(largest_prime_factor(600851475143) == 6857)
-    print("Problem 3: 6857")
+
+def result():
+    return 6857
+
+if __name__ == "__main__":
+    print(result())
 
