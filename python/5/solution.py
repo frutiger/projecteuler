@@ -35,5 +35,7 @@ def solve(n):
     return functools.reduce(operator.mul, all_factors.elements())
 
 if __name__ == "__main__":
-    print(solve(20))
+    assert(solve(10) == 2520)
+    assert(solve(20) == 232792560)
+    print("Problem 5: 232792560")
 

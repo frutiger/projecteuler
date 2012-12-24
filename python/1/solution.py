@@ -17,8 +17,12 @@ from utils import *
 def sum_of_multiples(max, divisor):
     return divisor * triangular_number(int((max - 1)/divisor))
 
-if __name__ == "__main__":
-    print(sum_of_multiples(1000,  3) \
-        + sum_of_multiples(1000,  5) \
-        - sum_of_multiples(1000, 15)) # these would get double counted
+def sum_of_two_multiples(max, div1, div2):
+    return (sum_of_multiples(max, div1) \
+          + sum_of_multiples(max, div2) \
+          - sum_of_multiples(max, div1 * div2)) # avoid double counting
 
+if __name__ == "__main__":
+    assert(sum_of_two_multiples(10,   3, 5) == 23)
+    assert(sum_of_two_multiples(1000, 3, 5) == 233168)
+    print("Problem 1: 233168")

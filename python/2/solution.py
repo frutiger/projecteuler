@@ -22,5 +22,6 @@ if __name__ == "__main__":
     less_than_4_million = itertools.takewhile(
         lambda x: x < 4000000, fibonaccis())
     evens = filter(lambda x: x%2==0, less_than_4_million)
-    print(sum(evens))
+    assert(sum(evens) == 4613732)
+    print("Problem 2: 4613732")
 

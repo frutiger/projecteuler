@@ -20,6 +20,13 @@ def unique_pairs(max):
         for b in range(max, a - 1, -1):
             yield (a, b)
 
+def solve(num_digits):
+    largest_num = (10 ** num_digits) - 1
+    return max(filter(is_palindrome, map(product,
+                                         unique_pairs(largest_num))))
+
 if __name__ == "__main__":
-    print(max(filter(is_palindrome, map(product, unique_pairs(999)))))
+    assert(solve(2) == 9009)
+    assert(solve(3) == 906609)
+    print("Problem 4: 906609")
 

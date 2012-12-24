@@ -20,5 +20,7 @@ def largest_prime_factor(n):
     return prime_factors(n)[-1:][0]
 
 if __name__ == "__main__":
-    print(largest_prime_factor(600851475143))
+    assert(largest_prime_factor(13195)        == 29)
+    assert(largest_prime_factor(600851475143) == 6857)
+    print("Problem 3: 6857")
 
