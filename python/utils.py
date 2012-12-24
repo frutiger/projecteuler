@@ -4,6 +4,20 @@ import functools
 import itertools
 import math
 
+def taker(generator):
+    def take(x, y=None):
+        if x < 1:
+            raise ValueError('less than 1: %d' % x)
+
+        if y is None:
+            return list(itertools.islice(generator(), x - 1, x))[0]
+
+        if y <= x:
+            raise ValueError('not greater than %d: %d' % (x, y))
+
+        return list(itertools.islice(generator(), x - 1, y - 1))
+    return take
+
 def primes():
     nums      = []
     candidate = 2
@@ -20,6 +34,8 @@ def primes():
             nums.append(candidate)
             yield candidate
         candidate += 1
+
+prime = taker(primes)
 
 def prime_factors(n):
     factors = []
@@ -41,17 +57,7 @@ def fibonaccis():
         b = a + b
         a = b - a
 
-def fibonacci(x, y=None):
-    if x < 1:
-        raise ValueError('less than 1: %d' % x)
-
-    if y is None:
-        return list(itertools.islice(fibonaccis(), x - 1, x))[0]
-
-    if y <= x:
-        raise ValueError('not greater than %d: %d' % (x, y))
-
-    return list(itertools.islice(fibonaccis(), x - 1, y - 1))
+fibonacci = taker(fibonaccis)
 
 def is_palindrome(n):
     chars = str(n)
