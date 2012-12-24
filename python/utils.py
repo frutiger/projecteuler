@@ -3,6 +3,7 @@
 import functools
 import itertools
 import math
+import operator
 
 def taker(generator):
     def take(x, y=None):
@@ -67,4 +68,4 @@ def is_palindrome(n):
     return True
 
 def product(sequence):
-    return functools.reduce(lambda x, y: x*y, sequence)
+    return functools.reduce(operator.mul, sequence)
