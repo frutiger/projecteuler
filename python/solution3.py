@@ -10,7 +10,7 @@ from utils import *
 
 def largest_prime_factor(n):
     if n < 2:
-        raise ValueError('less than 2: %d' % n)
+        raise ValueError("less than 2: %d" % n)
 
     return prime_factors(n)[-1:][0]
 
