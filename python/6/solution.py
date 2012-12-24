@@ -28,7 +28,7 @@ def solve(n):
     return sum([i*(total - i) for i in range(1, n + 1)])
 
 if __name__ == "__main__":
-    assert(solve(10) == 2640)
+    assert(solve(10)  == 2640)
     assert(solve(100) == 25164150)
     print("Problem 6: 25164150")
 
