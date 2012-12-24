@@ -2,19 +2,33 @@
 
 import functools
 import itertools
+import math
+
+def primes():
+    nums      = []
+    candidate = 2
+
+    while True:
+        is_prime = True
+        for num in nums:
+            if candidate % num == 0:
+                is_prime = False
+                break
+            if num > math.sqrt(candidate):
+                break
+        if is_prime:
+            nums.append(candidate)
+            yield candidate
+        candidate += 1
 
 def prime_factors(n):
-    if n < 2:
-        raise ValueError('less than 2: %d' % n)
-
-    candidate = 2
     factors = []
-    while n != 1:
-        if n % candidate == 0:
-            n = n / candidate
-            factors.append(candidate)
-        else:
-            candidate += 1
+    for prime in primes():
+        if n == 1:
+            break
+        while n % prime == 0:
+            n = n / prime
+            factors.append(prime)
     return factors
 
 def triangular_number(n):
