@@ -5,13 +5,12 @@ import glob
 import importlib
 import sys
 
-def num_problems():
-    return len(glob.glob("solution*.py"))
+def problems():
+    return sorted([int(name[8:-3]) for name in glob.glob("solution*.py")])
 
 def load(problem):
     try:
-        module = importlib.import_module("solution" + problem)
-        return module
+        return importlib.import_module("solution" + problem)
     except:
         raise RuntimeError("Could not load problem {0}, check "
                            "'solution{0}.py' exists".format(problem))
@@ -23,17 +22,16 @@ def result(problem):
     print("Solution {0}: {1}".format(problem, load(problem).result()))
 
 if __name__ == "__main__":
-    problems = num_problems()
     parser = argparse.ArgumentParser(description="Load and execute solutions")
     parser.add_argument("problems", metavar="N", type=int, nargs="*",
                         help="One or more problems (there are {0}) - load all \
-                              if none supplied".format(problems))
+                              if none supplied".format(len(problems())))
     parser.add_argument("-t", "--test", dest="action",
                         action="store_const", const=test, default=result,
                         help="Test solution instead of getting the result")
     args = parser.parse_args()
     if len(args.problems) == 0:
-        args.problems = range(1, problems + 1)
+        args.problems = problems()
     for i in args.problems:
         try:
             args.action(str(i))
