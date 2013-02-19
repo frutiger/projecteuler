@@ -16,7 +16,7 @@ from utils import *
 
 def solve(n):
     if n < 1:
-        raise ValueError("less than 1: %d" % n)
+        raise ValueError("less than 1: {0}".format(n))
 
     if n == 1:
         return 1

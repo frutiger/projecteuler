@@ -8,13 +8,13 @@ import operator
 def taker(generator):
     def take(x, y=None):
         if x < 1:
-            raise ValueError("less than 1: %d" % x)
+            raise ValueError("less than 1: {0}".format(x))
 
         if y is None:
             return list(itertools.islice(generator(), x - 1, x))[0]
 
         if y <= x:
-            raise ValueError("not greater than %d: %d" % (x, y))
+            raise ValueError("not greater than {0}: {1}".format(x, y))
 
         return list(itertools.islice(generator(), x - 1, y - 1))
     return take
