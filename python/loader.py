@@ -8,13 +8,19 @@ import sys
 def num_problems():
     return len(glob.glob("solution*.py"))
 
+def load(problem):
+    try:
+        module = importlib.import_module("solution" + problem)
+        return module
+    except:
+        raise RuntimeError("Could not load problem %s, check 'solution%s.py' "
+                           "exists" % (problem, problem))
+
 def test(problem):
-    module = importlib.import_module("solution" + problem)
-    module.test()
+    load(problem).test()
 
 def result(problem):
-    module = importlib.import_module("solution" + problem)
-    print("Solution %s: %d" % (problem, module.result()))
+    print("Solution %s: %d" % (problem, load(problem).result()))
 
 if __name__ == "__main__":
     problems = num_problems()
@@ -29,5 +35,8 @@ if __name__ == "__main__":
     if len(args.problems) == 0:
         args.problems = range(1, problems + 1)
     for i in args.problems:
-        args.action(str(i))
+        try:
+            args.action(str(i))
+        except RuntimeError as e:
+            print(e)
 
