@@ -69,3 +69,17 @@ def is_palindrome(n):
 
 def product(sequence):
     return functools.reduce(operator.mul, sequence)
+
+def collatz(n):
+    if n <= 0:
+        raise ValueError("less than 1: {0}".format(n))
+    yield n
+    while n is not 1:
+        if n % 2 == 0:
+            n = n // 2
+        else:
+            n = 3*n + 1
+        yield n
+
+def gen_len(gen):
+    return sum(1 for _ in gen)
